@@ -1,0 +1,31 @@
+.navbar {
+	display: flex;
+	align-items: center;
+	height: 100%;
+	justify-content: space-between;
+}
+
+.navigation {
+	display: flex;
+
+	gap: 45px;
+	height: 100%;
+}
+.navigation a {
+	color: black;
+	padding: 0 30px;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	text-decoration: none;
+	font-size: 20px;
+	transition: 0.3s;
+}
+
+.navigation a:hover {
+	color: #fff;
+}
+.navigation :global(.active) {
+	color: #fff;
+	background: #c3c3c3;
+}

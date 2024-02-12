@@ -1,0 +1,11 @@
+.main {
+	background-color: #e4e2e2;
+	flex-grow: 1;
+	padding: 0 64px;
+}
+.container {
+	max-width: 1320px;
+	width: 100%;
+	margin: 0 auto;
+	padding-top: 48px;
+}
