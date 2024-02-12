@@ -1,14 +1,17 @@
 import { FC } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
+import { FormProps } from "./form.props";
 
 interface IFormInput {
 	email: string;
-	passwod: string;
+	password: string;
 }
 
-const Form: FC = () => {
+const Form: FC<FormProps> = ({ title, handleClick }) => {
 	const { register, handleSubmit } = useForm<IFormInput>();
-	const onSubmit: SubmitHandler<IFormInput> = (data) => console.log(data);
+	const onSubmit: SubmitHandler<IFormInput> = (data) => {
+		handleClick(data.email, data.password);
+	};
 	return (
 		<form onSubmit={handleSubmit(onSubmit)}>
 			<label>
@@ -16,26 +19,20 @@ const Form: FC = () => {
 				<input
 					{...register("email", {
 						required: true,
-						maxLength: 20,
-						minLength: 5,
 					})}
 					type="email"
-					name="email"
 				/>
 			</label>
 			<label>
 				Password:
 				<input
-					{...register("email", {
+					{...register("password", {
 						required: true,
-						maxLength: 20,
-						minLength: 7,
 					})}
 					type="password"
-					name="password"
 				/>
 			</label>
-			<button type="submit"></button>
+			<button type="submit">{title}</button>
 		</form>
 	);
 };
