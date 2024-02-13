@@ -8,7 +8,7 @@ interface IFormInput {
 	password: string;
 }
 
-const Form: FC<FormProps> = ({ title, handleClick }) => {
+const Form: FC<FormProps> = ({ title, handleClick, children }) => {
 	const { register, handleSubmit } = useForm<IFormInput>();
 	const onSubmit: SubmitHandler<IFormInput> = (data) => {
 		handleClick(data.email, data.password);
@@ -42,6 +42,7 @@ const Form: FC<FormProps> = ({ title, handleClick }) => {
 			>
 				{title}
 			</button>
+			{children}
 		</form>
 	);
 };
