@@ -1,6 +1,7 @@
 import { FC } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { FormProps } from "./form.props";
+import styles from "./from.module.css";
 
 interface IFormInput {
 	email: string;
@@ -13,9 +14,12 @@ const Form: FC<FormProps> = ({ title, handleClick }) => {
 		handleClick(data.email, data.password);
 	};
 	return (
-		<form onSubmit={handleSubmit(onSubmit)}>
-			<label>
-				Email:
+		<form
+			className={styles.form}
+			onSubmit={handleSubmit(onSubmit)}
+		>
+			<label className={styles.email}>
+				Email
 				<input
 					{...register("email", {
 						required: true,
@@ -23,8 +27,8 @@ const Form: FC<FormProps> = ({ title, handleClick }) => {
 					type="email"
 				/>
 			</label>
-			<label>
-				Password:
+			<label className={styles.password}>
+				Password
 				<input
 					{...register("password", {
 						required: true,
@@ -32,7 +36,12 @@ const Form: FC<FormProps> = ({ title, handleClick }) => {
 					type="password"
 				/>
 			</label>
-			<button type="submit">{title}</button>
+			<button
+				className={styles.button}
+				type="submit"
+			>
+				{title}
+			</button>
 		</form>
 	);
 };

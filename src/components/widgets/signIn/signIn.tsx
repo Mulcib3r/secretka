@@ -21,7 +21,10 @@ const SignIn: FC = () => {
 				);
 				navigate("/");
 			})
-			.catch(console.error);
+			.catch( err => { 
+            const error = err.message
+         });
+         
 	};
 
 	return (
@@ -29,6 +32,7 @@ const SignIn: FC = () => {
 			title="Sign In"
 			handleClick={handleLogin}
 		/>
+      {  && <div>пользователь с таким email или password не найден</div>}
 	);
 };
 
