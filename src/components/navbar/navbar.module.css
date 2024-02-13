@@ -24,8 +24,27 @@
 
 .navigation a:hover {
 	color: #fff;
+	background: #c3c3c3;
 }
 .navigation :global(.active) {
+	color: #fff;
+	background: #c3c3c3;
+}
+
+.loguot {
+	color: #000;
+	background: transparent;
+	padding: 0 30px;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	text-decoration: none;
+	font-size: 20px;
+	transition: 0.3s;
+	border: none;
+	cursor: pointer;
+}
+.loguot:hover {
 	color: #fff;
 	background: #c3c3c3;
 }

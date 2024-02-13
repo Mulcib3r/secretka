@@ -1,4 +1,4 @@
-import { useAppSelector } from "./redux";
+import { useAppSelector } from "./useAppSelector";
 
 // Покажет авторизован ли пользователь
 export function useAuth() {
