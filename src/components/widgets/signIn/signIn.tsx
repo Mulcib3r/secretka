@@ -23,7 +23,7 @@ const SignIn: FC = () => {
 				setError(null);
 				navigate("/");
 			})
-			.catch((err) => {
+			.catch(() => {
 				setError("Пользователь с таким email или password не найден");
 			});
 	};

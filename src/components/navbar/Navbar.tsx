@@ -13,7 +13,6 @@ const Navbar = () => {
 				<NavLink to="/">Главная</NavLink>
 			</div>
 			<div className={styles.navigation}>
-				<NavLink to="login">Sign In</NavLink>
 				{isAuth ? (
 					<button
 						className={styles.loguot}
@@ -22,7 +21,10 @@ const Navbar = () => {
 						Log Out
 					</button>
 				) : (
-					<NavLink to="register">Sign Up</NavLink>
+					<>
+						<NavLink to="login">Sign In</NavLink>
+						<NavLink to="register">Sign Up</NavLink>
+					</>
 				)}
 			</div>
 		</nav>
