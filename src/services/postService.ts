@@ -1,16 +1,33 @@
-import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query";
+import { createAsyncThunk } from "@reduxjs/toolkit";
 import { IPost } from "../models/IPost";
+import axios from "axios";
+import { RootState } from "../store/store";
 
-export const postApi = createApi({
-	reducerPath: "posts",
-	baseQuery: fetchBaseQuery({
-		baseUrl: "https://jsonplaceholder.typicode.com/",
-	}),
-	endpoints: (builder) => ({
-		getPosts: builder.query<IPost[], void>({
-			query: () => ({
-				url: `/posts`,
-			}),
-		}),
-	}),
-});
+const BAZA_URL = `https://jsonplaceholder.typicode.com/`;
+
+export const fetchPosts = createAsyncThunk(
+	"posts/fetchPosts",
+	async (_, { getState }) => {
+		const state = getState() as RootState;
+		const { data } = await axios.get<IPost[]>(
+			`/posts?_page=${state.posts.page}?_limit=10`,
+			{
+				baseURL: BAZA_URL,
+			}
+		);
+		return data;
+	}
+);
+export const fetchNextPosts = createAsyncThunk(
+	"posts/fetchNextPosts",
+	async (_, { getState }) => {
+		const state = getState() as RootState;
+		const { data } = await axios.get<IPost[]>(
+			`/posts?_page=${state.posts.page}?_limit=10`,
+			{
+				baseURL: BAZA_URL,
+			}
+		);
+		return data;
+	}
+);
