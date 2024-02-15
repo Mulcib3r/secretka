@@ -6,6 +6,7 @@ import {
 	postsLoadingSelector,
 	postsNextLoadingSelector,
 	postsSelector,
+	postsTotalCountSelector,
 } from "../../../store/slices/postsSlice";
 import { useAppSelector } from "../../../hooks/useAppSelector";
 import { fetchNextPosts, fetchPosts } from "../../../services/postService";
@@ -19,13 +20,17 @@ const Home: FC = () => {
 	const posts = useAppSelector(postsSelector);
 	const loadingState = useAppSelector(postsLoadingSelector);
 	const nextLoadingState = useAppSelector(postsNextLoadingSelector);
+	const totalCount = useAppSelector(postsTotalCountSelector);
 
 	useEffect(() => {
 		dispatch(fetchPosts());
 	}, [dispatch]);
 
 	const loadMore = () => {
-		dispatch(fetchNextPosts());
+		if (nextLoadingState !== "pending") {
+			dispatch(fetchNextPosts());
+			console.log(posts.length + " " + totalCount);
+		}
 	};
 
 	const refetch = () => {
@@ -50,10 +55,7 @@ const Home: FC = () => {
 			<InfiniteScroll
 				className={styles.home}
 				loadMore={loadMore}
-				hasMore={
-					nextLoadingState !== "pending" &&
-					nextLoadingState !== "rejected"
-				}
+				hasMore={totalCount - posts.length > 0}
 			>
 				{posts?.map((post) => (
 					<PostCard
@@ -62,7 +64,7 @@ const Home: FC = () => {
 					/>
 				))}
 			</InfiniteScroll>
-			{nextLoadingState === "pending" && <div>Loading...</div>}
+			{nextLoadingState === "pending" && <div>Loading..</div>}
 			{nextLoadingState === "rejected" && (
 				<div>
 					<h1>Произошла ошибка!</h1>

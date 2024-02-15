@@ -11,14 +11,16 @@ interface postsState {
 	limit: number;
 	loadingState: LoadingState;
 	nextLoadingState: LoadingState;
+	totalCount: number;
 }
 
 const initialState: postsState = {
 	posts: [],
-	page: 0,
-	limit: 10,
+	page: 1,
+	limit: 12,
 	loadingState: "initial",
 	nextLoadingState: "initial",
+	totalCount: 0,
 };
 
 export const postsSlice = createSlice({
@@ -31,7 +33,8 @@ export const postsSlice = createSlice({
 		});
 
 		addCase(fetchPosts.fulfilled, (state, action) => {
-			state.posts = action.payload;
+			state.posts = action.payload.data;
+			state.totalCount = action.payload.totalCount;
 			state.loadingState = "fulfilled";
 		});
 
@@ -45,7 +48,8 @@ export const postsSlice = createSlice({
 		});
 
 		addCase(fetchNextPosts.fulfilled, (state, action) => {
-			state.posts = state.posts.concat(action.payload);
+			state.posts = state.posts.concat(action.payload.data);
+			state.totalCount = action.payload.totalCount;
 			state.nextLoadingState = "fulfilled";
 		});
 
@@ -58,6 +62,8 @@ export const postsSlice = createSlice({
 export const postsSelector = (state: RootState) => state.posts.posts;
 export const postsLoadingSelector = (state: RootState) =>
 	state.posts.loadingState;
+export const postsTotalCountSelector = (state: RootState) =>
+	state.posts.totalCount;
 export const postsNextLoadingSelector = (state: RootState) =>
 	state.posts.nextLoadingState;
 export default postsSlice.reducer;
