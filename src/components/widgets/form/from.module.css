@@ -41,3 +41,8 @@ input:focus {
 .button:hover {
 	color: #fff;
 }
+@media (max-width: 684px) {
+	.form {
+		width: 70%;
+	}
+}

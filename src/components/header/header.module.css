@@ -26,3 +26,8 @@
 		max-width: 410px;
 	}
 }
+@media (max-width: 410px) {
+	.container {
+		max-width: 384px;
+	}
+}
