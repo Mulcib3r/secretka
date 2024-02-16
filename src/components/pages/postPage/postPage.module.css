@@ -1,0 +1,11 @@
+.link {
+	font-size: 33px;
+	text-decoration: none;
+	color: black;
+	transition: 0.2s;
+}
+.link:hover,
+.link:focus {
+	color: #fff;
+	outline: none;
+}

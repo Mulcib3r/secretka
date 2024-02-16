@@ -49,7 +49,6 @@ export const postsSlice = createSlice({
 
 		addCase(fetchNextPosts.fulfilled, (state, action) => {
 			state.posts = state.posts.concat(action.payload.data);
-			state.totalCount = action.payload.totalCount;
 			state.nextLoadingState = "fulfilled";
 		});
 

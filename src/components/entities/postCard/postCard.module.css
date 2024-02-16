@@ -1,5 +1,19 @@
 .text {
-	overflow: "hidden";
-	white-space: "nowrap";
-	text-overflow: "ellipsis";
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+.link {
+	display: inline-block;
+	color: black;
+	text-decoration: none;
+	padding: 0.3rem 1.5rem;
+	background-color: #c2c2c2;
+	border-radius: 1rem;
+	transition: 0.2s;
+}
+.link:hover,
+.link:focus {
+	color: #fff;
+	outline: none;
 }

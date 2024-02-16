@@ -23,15 +23,16 @@ const Home: FC = () => {
 	const totalCount = useAppSelector(postsTotalCountSelector);
 
 	useEffect(() => {
-		dispatch(fetchPosts());
-	}, [dispatch]);
+		if (posts.length === 0) {
+			dispatch(fetchPosts());
+		}
+	}, [dispatch, posts.length]);
 
-	const loadMore = () => {
+	function loadMore() {
 		if (nextLoadingState !== "pending") {
 			dispatch(fetchNextPosts());
-			console.log(posts.length + " " + totalCount);
 		}
-	};
+	}
 
 	const refetch = () => {
 		dispatch(fetchPosts());

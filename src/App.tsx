@@ -4,6 +4,7 @@ import Layout from "./components/layout/Layout";
 import Home from "./components/pages/home/Home";
 import Register from "./components/pages/register/Register";
 import Login from "./components/pages/login/Login";
+import PostPage from "./components/pages/postPage/PostPage";
 
 function App(): JSX.Element {
 	return (
@@ -15,6 +16,10 @@ function App(): JSX.Element {
 				<Route
 					index
 					element={<Home />}
+				/>
+				<Route
+					path="/post/:id"
+					element={<PostPage />}
 				/>
 				<Route
 					path="register"
