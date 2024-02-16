@@ -35,7 +35,7 @@
 .loguot {
 	color: #000;
 	background: transparent;
-	padding: 0 30px;
+	padding: 0 1rem;
 	height: 100%;
 	display: flex;
 	align-items: center;
@@ -51,6 +51,9 @@
 }
 @media (max-width: 410px) {
 	.navigation a {
+		padding: 0 0.5rem;
+	}
+	.loguot {
 		padding: 0 0.5rem;
 	}
 }
