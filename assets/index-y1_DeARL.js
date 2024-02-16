@@ -1547,4 +1547,4 @@ Error generating stack: `+s.message+`
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- */Mr(ZP,eR,"app");const tR={apiKey:"AIzaSyC04XuAgkx0ERnoTpOzKcmyE6wUhP5aTAc",authDomain:"forauthonpetproject.firebaseapp.com",projectId:"forauthonpetproject",storageBucket:"forauthonpetproject.appspot.com",messagingSenderId:"125317792208",appId:"1:125317792208:web:127c18e51a5ffb926d79d5"};Hy(tR);const nR=XP();Ml.createRoot(document.getElementById("root")).render(D.jsx(Ne.StrictMode,{children:D.jsx(rE,{children:D.jsx(DE,{store:nR,children:D.jsx(YP,{})})})}));
+ */Mr(ZP,eR,"app");const tR={apiKey:"AIzaSyC04XuAgkx0ERnoTpOzKcmyE6wUhP5aTAc",authDomain:"forauthonpetproject.firebaseapp.com",projectId:"forauthonpetproject",storageBucket:"forauthonpetproject.appspot.com",messagingSenderId:"125317792208",appId:"1:125317792208:web:127c18e51a5ffb926d79d5"};Hy(tR);const nR=XP();Ml.createRoot(document.getElementById("root")).render(D.jsx(Ne.StrictMode,{children:D.jsx(rE,{basename:"secretka",children:D.jsx(DE,{store:nR,children:D.jsx(YP,{})})})}));
