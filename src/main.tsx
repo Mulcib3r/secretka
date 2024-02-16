@@ -11,7 +11,7 @@ const store = setupStore();
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
 	<React.StrictMode>
-		<BrowserRouter>
+		<BrowserRouter basename="/secretka">
 			<Provider store={store}>
 				<App />
 			</Provider>

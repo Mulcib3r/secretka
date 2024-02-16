@@ -17,6 +17,7 @@ const SignIn: FC = () => {
 					setUser({
 						email: user.email,
 						id: user.uid,
+						//@ts-expect-error user содержит accesToken
 						token: user.accessToken,
 					})
 				);
